@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/intro_js.css">
+        <script defer src="scripts/intro_js.js" charset="utf-8"></script>
+    </head>
+    <body onload="init(); sum(); convert();">
+        <!-- info -->
+        <p id="info"></p>
+
+        <!-- 入力された文字が数字かどうか判定 -->
+        <div class="check">
+            <h2>偶数・奇数判定</h2>
+            <label>
+                入力
+                <input type="text" id="number" placeholder="数値を入力してください" /><br />
+            </label>
+            <button onclick="checkEven()">入力判定</button>
+            <p id="judge"></p>
+        </div>
+        <!-- sum -->
+        <div class="for-loop">
+            <h2>1からhogeまでの合計</h2>
+            <label>
+                <input type="text" id="num" placeholder="Please input a number">
+                <button type="button" onclick="sum()">SUM</button>
+            </label>
+            <p id="sum"></p>
+        </div>
+        <!-- switch -->
+        <div class="switch">
+            <h2>キーボード操作：keydown</h2>
+            <p id="key"></p>
+        </div>
+        <!-- C to F -->
+        <div class="c-to-f">
+            <h2>摂氏、華氏の表示</h2>
+            <input id="celsius" type="range" min="0" max="100" onchange="convert()" />
+            <p id="result"></p>
+        </div>
+        <!-- manipulation of DOM(Document Object Model) -->
+        <div class="dom">
+            <h2>3-10. DOMの操作</h2>
+            <h3>3-10-1. 要素の作成と挿入、既存の要素の消去</h3>
+            <button type="button" onclick="insertItem()">insert</button>
+            <button type="button" onclick="removeItem()">delete</button><br />
+            <ol id="list">
+                <!-- insert or delete here -->
+            </ol>
+
+            <h3>3-10-2. 文書ツリーをたどるためのプロパティ</h3>
+            DOM要素から他の要素への参照を取得できる。
+            <h4>文書ツリーをためのプロパティ</h4>
+            <ul id="prop">
+                <li>parentNode</li>
+                親要素
+                <li>firstChild</li>
+                子要素の中で先頭に位置する要素
+                <li>lastChild</li>
+                子要素の中で最後に位置する要素
+                <li>previosElementSibling</li>
+                同じ親要素を共有する要素の中で1つ前の要素
+                <li>nextElementSibling</li>
+                同じ親要素を共有する要素の中で1つ後ろの要素
+            </ul>
+
+            <h3>3-10-3. JavaScriptからスタイルの指定</h3>
+            <p>
+                html要素のスタイルもJavaScriptから変更することができる。要素のスタイルは、
+                <b>background-color</b>, <b>color</b>, <b>top</b>, <b>left</b>といったCSSのスタイルを使って指定する。
+                スクリプトからスタイルにアクセスする方法は、 <br />
+                <p><b>DOM要素.style.プロパティ名</b></p>
+                でアクセスする。
+            </p>
+            <div id="ufo">
+                <(ooo)>
+            </div>
+            <button type="button" onclick="changeColor()">click me</button>
+            <h4 id="maru_batsu"><b>○×ゲーム</b></h4>
+            <p>
+                onclickMe(this)のthisは要素自身を表す。クリックされた時に自作関数clickMe()にtd要素自体が渡される。
+                よってtd.textContent = 'o'ばつとすることで、まるばつをつけることができる。
+            </p>
+        </div>
+
+        <!-- 3-11 -->
+        <div class="object">
+            <h2>3-11. オブジェクトの操作</h2>
+            <h3>3-11-1. プロパティ、メソッド、インターフェース</h3>
+            <h3>3-11-2. JavaScriptでのオブジェクトの実装例</h3>
+            <h3>3-11-3. JavaScriptでのオブジェクトの作り方</h3>
+            <h3>3-11-4. プロトタイプ</h3>
+        </div>
+
+        <!-- 3-12 -->
+        <div class="buildin-object">
+            <h2>3-12. 組み込みオブジェクト</h2>
+            <h3>3-12-1. タイマー</h3>
+            
+        </div>
+
+        <!-- 3-13 -->
+        <div class="json">
+            <h2>3-13. JSON記法</h2>
+
+        </div>
+
+        <footer>
+            <p>footer</p>
+        </footer>
+    </body>
+</html>
