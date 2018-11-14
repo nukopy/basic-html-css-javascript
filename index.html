@@ -5,8 +5,9 @@
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/intro_js.css">
         <script defer src="scripts/intro_js.js" charset="utf-8"></script>
+        <script defer src="scripts/ufo.js" charset="utf-8"></script>
     </head>
-    <body onload="init(); sum(); convert();">
+    <body onload="init(); sum(); convert(); init2(); init_ufo()">
         <div class="3-6">
             <h2>3-6. 条件式</h2>
             <!-- info -->
@@ -102,7 +103,9 @@
                 <p>
                     onclickMe(this)のthisは要素自身を表す。クリックされた時に自作関数clickMe()にtd要素自体が渡される。
                     よってtd.textContent = 'o'ばつとすることで、まるばつをつけることができる。
+                    <b>イベントが起こった時の要素オブジェクトは変数thisに自動で代入される。</b>
                 </p>
+
             </div>
         </div>
 
@@ -112,18 +115,52 @@
             <!--  -->
             <div class="object">
                 <h3>3-11-1. プロパティ、メソッド、インターフェース</h3>
+                <ul>
+                    <li>プロパティ</li>
+                    オブジェクトのもつ性質
+                    <li>メソッド</li>
+                    オブジェクトに対して働きかける操作
+                    <li>インタフェース</li>
+                    意味のあるメソッドの集合
+                    <li>カプセル化</li>
+                    オブジェクトの中で起きている（複雑な）処理を隠すこと
+                </ul>
             </div>
             <!--  -->
             <div class="object">
                 <h3>3-11-2. JavaScriptでのオブジェクトの実装例</h3>
+                <h4>UFOを座標系で動かす</h4>
+                <p id="">左右矢印キーでUFOが動く</p>
+                <p>動作：<span id="caution"></span> </p>
+                <p>xy座標：<span id="xy-plane"></span></p>
+                <div id="ufo2">
+                    <(ooo)>
+                </div>
             </div>
             <!--  -->
             <div class="object">
                 <h3>3-11-3. JavaScriptでのオブジェクトの作り方</h3>
+                JavaScript(ES5以前)でのオブジェクトの作り方は以下の通り。
+                <p>
+                    <b>オブジェクト名 = new 関数（引数1, 引数2, ..）</b>
+                </p>
+                <p>
+                    JavaScript(ES5以前)では、以下の両方目的で <b>function</b>を使う。
+                    <ol>
+                        <li>ある程度の処理をまとめる普通の関数</li>
+                        <li>オブジェクトを作成する命令</li>
+                    </ol>
+                    オブジェクトを作るための関数を「<b>コンストラクタ</b>」と呼ぶ。
+
+                </p>
             </div>
             <!--  -->
             <div class="object">
                 <h3>3-11-4. プロトタイプ</h3>
+                <p>xy座標：<span id="new-xy-plane"></span></p>
+                <div id="ufo3">
+                    <(ooo)>
+                </div>
             </div>
         </div>
 

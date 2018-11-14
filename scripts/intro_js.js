@@ -152,3 +152,73 @@ table.setAttribute('border', 10)
 title.parentNode.insertBefore(table, title.nextElementSibling);
 
 // object
+let ufo;
+let init_x = init_y = 0;
+let xy_plane = document.getElementById('xy-plane');
+
+function init2(x0 = init_x, y0 = init_y) {
+    // key操作（イベントkeydown）が行われた時に、自作関数moveが実行される.
+    // moveにはイベントkeydownが引数として渡される。
+    window.addEventListener('keydown', move);
+    ufo = new UFO(document.getElementById('ufo2'), x0, y0);  // 0はUFOの初期位置
+    ufo.elem.style.left = x0;
+    ufo.elem.style.top = y0;
+    xy_plane.textContent = `(${x0}, ${y0})`
+}
+
+// moveが実行された時
+let caution = document.getElementById('caution');
+
+function move(e) {
+    if (e.keyCode === 37) {
+        ufo.moveLeft();
+        caution.style.color = 'blue';
+        caution.textContent = '正常'
+    } else if (e.keyCode === 39) {
+        ufo.moveRight();
+        caution.style.color = 'blue';
+        caution.textContent = '正常'
+    } else {
+        caution.style.color = 'red';
+        caution.textContent = '上下には動きません。左右矢印キーを操作してください。';
+    }
+}
+
+
+// function でオブジェクトを作成している(ES5以前)
+function UFO(_elem, _xpos, _ypos) {
+    // property
+    this.elem = _elem;
+    this.xpos = _xpos;
+    this.ypos = _ypos;
+    // method
+    this.moveLeft = () => {
+        this.xpos -= 10;
+        this.elem.style.left = this.xpos + 'px';
+        xy_plane.textContent = `(${this.xpos}, ${this.ypos})`;
+    }
+    this.moveRight = () => {
+        this.xpos += 10;
+        this.elem.style.left = this.xpos + 'px';
+        xy_plane.textContent = `(${this.xpos}, ${this.ypos})`;
+    }
+}
+
+// class でオブジェクトを作成する(ES6以降)
+// class UFO_es6 {
+//     constructor(_elem, _xpos) {
+//         this.elem = _elem;
+//         this.xpos = _xpos;
+//     }
+//
+//     // method
+//     moveLeft() {
+//         this.xpos -= 10;
+//         this.elem.style.left = this.xpos + 'px';
+//     }
+//     moveRight() {
+//         this.xpos += 10;
+//         this.elem.style.left = this.xpos + 'px';
+//     }
+// }
+//
